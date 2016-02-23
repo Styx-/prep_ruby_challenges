@@ -18,11 +18,18 @@ def counting_game(number_of_players, play_number)
     #wrap back around if current_player exceeds number of players
     current_player -= number_of_players if current_player > number_of_players
 
-    #wrap back around in other direction
+    #wrap back around in other direction if needed
     current_player += number_of_players if current_player < 1
+
+    puts [current_player, current_number].inspect
   end
   #return last player
   current_player
 end
 
-puts counting_game(10, 100)
+puts "How many people are playing today?"
+number_of_players = gets.chomp.to_i
+puts "Okay, and to what number would you like to play?"
+play_number = gets.chomp.to_i
+
+puts "And the player at count #{play_number} is player number: #{counting_game(number_of_players, play_number)}!"
